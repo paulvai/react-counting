@@ -9,8 +9,10 @@ const withCounter = (OriginalComponent) => {
       this.setState((prevState) => ({ count: prevState.count + 1 }));
     };
     render() {
-      const { count } = this.state;
-      return <OriginalComponent />;
+      const { count, incrementCount } = this.state;
+      return (
+        <OriginalComponent count={count} incrementCount={incrementCount} />
+      );
     }
   }
   return NewComponent;
